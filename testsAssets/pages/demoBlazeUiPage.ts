@@ -101,13 +101,12 @@ export default class DemoblazeUIPage extends BasePage {
         });
       }
     }
-
-    // Ensure testData folder exists under testsAssets
-    const testDataDir = path.resolve("testsAssets/testData");
+    
+    const testDataDir = "testsAssets/testData";
     if (!fs.existsSync(testDataDir)) {
       fs.mkdirSync(testDataDir, { recursive: true });
     }
-    
+
     const fileName = `${category.toLowerCase()}Ui.json`;
     const filePath = path.join(testDataDir, fileName);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));

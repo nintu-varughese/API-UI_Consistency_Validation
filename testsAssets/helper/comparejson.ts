@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-export async function compareJsonData() {
-  const testDataDir = path.resolve('testsAssets/testData');
+export default async function compareJsonData() {
+  const testDataDir = 'testsAssets/testData';
 
   if (!fs.existsSync(testDataDir)) {
     throw new Error(`Test data directory not found: ${testDataDir}`);
@@ -66,6 +66,4 @@ export async function compareJsonData() {
 
   const resultPath = path.join(testDataDir, 'compareResult.json');
   fs.writeFileSync(resultPath, JSON.stringify(results, null, 2));
-
-  console.log(`Comparison completed. Results saved to: ${resultPath}`);
 }

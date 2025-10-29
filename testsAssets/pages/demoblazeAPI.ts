@@ -44,12 +44,11 @@ export default class DemoblazeAPIPage  {
       price: `$${item.price}`,
     }));
 
-    const testDataDir = path.resolve('testsAssets/testData');
+    const testDataDir = 'testsAssets/testData';
     if (!fs.existsSync(testDataDir)) {
       fs.mkdirSync(testDataDir, { recursive: true });
     }
 
-    // Save data as JSON
     const fileName = `${category}Api.json`;
     const filePath = path.join(testDataDir, fileName);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));

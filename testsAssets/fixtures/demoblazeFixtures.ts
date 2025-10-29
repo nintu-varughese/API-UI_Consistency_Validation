@@ -1,7 +1,7 @@
 import { test as base, expect, request } from '@playwright/test';
 import DemoblazeUIPage from '../pages/demoBlazeUiPage';
 import DemoblazeAPIPage from '../pages/demoblazeAPI';
-import { compareJsonData } from '../helper/comparejson';
+import compareJsonData  from '../helper/comparejson';
 import fs from 'fs';
 import path from 'path';
 
@@ -14,6 +14,7 @@ type Fixtures = {
 };
 
 export const test = base.extend<Fixtures>({
+  
   demoblazeUI: async ({ page }, use) => {
     const uiPage = new DemoblazeUIPage(page);
     await use(uiPage);
