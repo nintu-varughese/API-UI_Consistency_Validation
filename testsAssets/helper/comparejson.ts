@@ -7,7 +7,6 @@ export default async function compareJsonData() {
   if (!fs.existsSync(testDataDir)) {
     throw new Error(`Test data directory not found: ${testDataDir}`);
   }
-
   const comparisons = [
     { ui: 'PhonesUi.json', api: 'phoneApi.json', category: 'Phones' },
     { ui: 'LaptopsUi.json', api: 'notebookApi.json', category: 'Laptops' },

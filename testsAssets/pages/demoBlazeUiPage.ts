@@ -3,10 +3,6 @@ import BasePage from "./basePage";
 import fs from "fs";
 import path from "path";
 
-/**
- * Page Object Model for Demoblaze UI interactions.
- * Handles navigation to product categories and extraction of product data.
- */
 export default class DemoblazeUIPage extends BasePage {
   private readonly phonesTab: Locator;
   private readonly laptopsTab: Locator;
@@ -65,7 +61,7 @@ export default class DemoblazeUIPage extends BasePage {
         expectedCount = 2;
         break;
     }
-
+    
     await categoryTab.click();
     await this.page.waitForFunction(
       (expected) =>
@@ -104,7 +100,7 @@ export default class DemoblazeUIPage extends BasePage {
     
     const testDataDir = "testsAssets/testData";
     if (!fs.existsSync(testDataDir)) {
-      fs.mkdirSync(testDataDir, { recursive: true });
+      fs.mkdirSync(testDataDir);
     }
 
     const fileName = `${category.toLowerCase()}Ui.json`;

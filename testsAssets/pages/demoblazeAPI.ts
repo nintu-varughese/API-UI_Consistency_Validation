@@ -1,11 +1,7 @@
-import { APIRequestContext, request } from '@playwright/test';
+import { APIRequestContext } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
-/**
- * Page Object Model for interacting with Demoblaze API.
- * Handles category-wise product extraction using API requests.
- */
 export default class DemoblazeAPIPage  {
   private readonly baseUrl: string;
   private readonly apiEndpoint: string;
@@ -37,7 +33,7 @@ export default class DemoblazeAPIPage  {
     }
 
     const responseBody = await response.json();
-    const items = responseBody.Items || [];
+    const items = responseBody.Items;
 
     const data = items.map((item: any) => ({
       name: item.title,
@@ -46,7 +42,7 @@ export default class DemoblazeAPIPage  {
 
     const testDataDir = 'testsAssets/testData';
     if (!fs.existsSync(testDataDir)) {
-      fs.mkdirSync(testDataDir, { recursive: true });
+      fs.mkdirSync(testDataDir);
     }
 
     const fileName = `${category}Api.json`;

@@ -10,8 +10,4 @@ export default class BasePage {
   async navigateTo(url: string): Promise<void> {
     await this.page.goto(url, { waitUntil: 'load' });
   }
-
-  async click(selector: string): Promise<void> {
-    await this.page.click(selector);
-  }
 }
